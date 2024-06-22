@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="这里每天分享一个 iOS 的新知识，快来关注我吧 前言 之前讲过如何在项目中使用 SFSafariViewController，但那个是 Swift 版的，今天看到有人问如何在 SwiftUI 中使用 SFSafariViewController，虽然在 Swift UIKit 中很容易使用，但是在 SwiftUI 中还是有些难度的，今天就来稍微讲讲。 如何在项目中使用 SFSafariViewC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SwiftUI 中如何使用 SFSafariViewController 显示网页">
+<meta property="og:url" content="http://example.com/2024/06/21/iOS/SwiftUI%20%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20SFSafariViewController%20%E6%98%BE%E7%A4%BA%E7%BD%91%E9%A1%B5/index.html">
+<meta property="og:site_name" content="Arise的博客">
+<meta property="og:description" content="这里每天分享一个 iOS 的新知识，快来关注我吧 前言 之前讲过如何在项目中使用 SFSafariViewController，但那个是 Swift 版的，今天看到有人问如何在 SwiftUI 中使用 SFSafariViewController，虽然在 Swift UIKit 中很容易使用，但是在 SwiftUI 中还是有些难度的，今天就来稍微讲讲。 如何在项目中使用 SFSafariViewC">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-06-21T07:18:18.000Z">
+<meta property="article:modified_time" content="2024-06-21T07:37:45.122Z">
+<meta property="article:author" content="Arise">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >SwiftUI 中如何使用 SFSafariViewController 显示网页</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.2' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.2' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/log.svg?v=2.2.2' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Arise","root":"/","typed_text":["Web Developer"],"theme_version":"2.2.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-06-21 15:37:45"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.2" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            白云<span>苍狗</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            SwiftUI 中如何使用 SFSafariViewController 显示网页
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        白云苍狗
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:admin@imalun.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            06/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            15:18
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Arise
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p><strong>这里每天分享一个 iOS 的新知识，快来关注我吧</strong></p>
+<p>前言</p>
+<p>之前讲过如何在项目中使用 SFSafariViewController，但那个是 Swift 版的，今天看到有人问如何在 SwiftUI 中使用 SFSafariViewController，虽然在 Swift UIKit 中很容易使用，但是在 SwiftUI 中还是有些难度的，今天就来稍微讲讲。</p>
+<p><a href="https://link.juejin.cn/?target=https://link.zhihu.com/?target=http%253A//mp.weixin.qq.com/s%253F__biz%253DMzg3MDk3NzUzNw%253D%253D%2526mid%253D2247484282%2526idx%253D1%2526sn%253D693bdee8862280e1b3dada2fdbe5e18b%2526chksm%253Dce84da14f9f353026681ea6688cbf21c188cebd203ea2ffd3b06c59680d8ba759214f444e424%2526scene%253D21%2523wechat_redirect" title="https://link.zhihu.com/?target=http%3A//mp.weixin.qq.com/s%3F__biz%3DMzg3MDk3NzUzNw%3D%3D%26mid%3D2247484282%26idx%3D1%26sn%3D693bdee8862280e1b3dada2fdbe5e18b%26chksm%3Dce84da14f9f353026681ea6688cbf21c188cebd203ea2ffd3b06c59680d8ba759214f444e424%26scene%3D21%23wechat_redirect">如何在项目中使用 SFSafariViewController</a></p>
+<h3 id="为-SFSafariViewController-创建-SwiftUI-包装器"><a href="#为-SFSafariViewController-创建-SwiftUI-包装器" class="headerlink" title="为 SFSafariViewController 创建 SwiftUI 包装器"></a>为 SFSafariViewController 创建 SwiftUI 包装器</h3><p>其实 SwiftUI 并没有直接提供 SFSafariViewController 这个组件，那么在 SwiftUI 中使用就只能通过桥接一层。</p>
+<p>我们先通过创建一个继承 UIViewRepresentable 协议的自定义结构体，然后再开始实现对应的功能。该协议允许我们创建一个包装 UIKit 视图控制器的 SwiftUI 视图：</p>
+<p>首先导入三个需要用到的框架：</p>
+<p>arduino</p>
+<p>复制代码</p>
+<p><code>import SwiftUI import UIKit import SafariServices</code></p>
+<p>然后创建自定义的 <code>SFSafariView</code>:</p>
+<p>swift</p>
+<p>复制代码</p>
+<p><code>struct MySFSafariView: UIViewControllerRepresentable &#123;          let url: URL     func makeUIViewController(context: UIViewControllerRepresentableContext&lt;Self&gt;) -&gt; SFSafariViewController &#123;         return SFSafariViewController(url: url)     &#125;     func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext&lt;MySFSafariView&gt;) &#123;              &#125; &#125;</code></p>
+<p>要自定义一个 SwiftUI 中桥接 UIKit 的 View，首先要继承 <code>UIViewControllerRepresentable</code> 协议，然后必须要实现协议中的两个方法：</p>
+<ol>
+<li><p><code>makeUIViewController(context: )</code> 方法将调用它来创建 <code>UIViewController</code> 实例</p>
+</li>
+<li><p><code>updateUIViewController(_ : context: )</code> 方法将调用它以使用来自 SwiftUI 的数据以更新 <code>UIViewController</code> 的状态</p>
+</li>
+</ol>
+<p>在我们的例子中，我只是简单的创建了一个 <code>SFSafariViewController</code> 对象，实际中你可以根据需求来增加功能。</p>
+<h3 id="创建可重用的视图修饰符"><a href="#创建可重用的视图修饰符" class="headerlink" title="创建可重用的视图修饰符"></a>创建可重用的视图修饰符</h3><p>为了以后可以重复使用这个 View，我们再来创建一些可重用的视图修饰符 ViewModifier，便于使用 openURL 打开一个链接：</p>
+<p>swift</p>
+<p>复制代码</p>
+<p><code>extension Binding where Value == Bool &#123;     init(binding: Binding&lt;(some Any)?&gt;) &#123;         self.init(             get: &#123;                 binding.wrappedValue != nil             &#125;,             set: &#123; newValue in                 guard newValue == false else &#123; return &#125;                 binding.wrappedValue = nil             &#125;         )     &#125; &#125; extension Binding &#123;     func mappedToBool&lt;Wrapped&gt;() -&gt; Binding&lt;Bool&gt; where Value == Wrapped? &#123;         Binding&lt;Bool&gt;(binding: self)     &#125; &#125; private struct SafariViewControllerViewModifier: ViewModifier &#123;     @State private var urlToOpen: URL?     func body(content: Content) -&gt; some View &#123;         content             .environment(\.openURL, OpenURLAction &#123; url in                 urlToOpen = url                 return .handled             &#125;)             .sheet(isPresented: $urlToOpen.mappedToBool(), onDismiss: &#123;                 urlToOpen = nil             &#125;, content: &#123;                 MySFSafariView(url: urlToOpen!)             &#125;)     &#125; &#125;</code></p>
+<p>我们使用视图修饰符来捕获任何传入的 URL，并将它们用作 sheet 的输入。这个新的 Sheet 使用我们之前创建 MySFSafariView 的 URL 在应用程序内显示 SFSafariViewController。</p>
+<h3 id="在-SwiftUI-中展示-SFSafariViewController"><a href="#在-SwiftUI-中展示-SFSafariViewController" class="headerlink" title="在 SwiftUI 中展示 SFSafariViewController"></a>在 SwiftUI 中展示 SFSafariViewController</h3><p>我们先给 View 写一个扩展方法，以使用刚刚写好的视图修饰符：</p>
+<p>scss</p>
+<p>复制代码</p>
+<p><code>extension View &#123;     func handleOpenURLUseSafariView() -&gt; some View &#123;         modifier(SafariViewControllerViewModifier())     &#125; &#125;</code></p>
+<p>现在我们已经写好了所有逻辑，现在可以开始在 SwiftUI 中展示任何传入的 URL 的视图了。</p>
+<p>css</p>
+<p>复制代码</p>
+<p><code>struct ContentView: View &#123;     var body: some View &#123;         VStack &#123;             Link(&quot;打开 Apple 官网&quot;, destination: URL(string: &quot;https://www.apple.com&quot;)!)                 . handleOpenURLUseSafariView()         &#125;     &#125; &#125;</code></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7682d4265345838b68ef13abb1117f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=600&h=1225&s=94807&e=png&b=fdfdfd"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>点击之后可以看到能够正常展示 <code>SFSafariViewController</code>:</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7095624c0f914ed09efe10e86d991d19~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=600&h=1221&s=221645&e=png&b=070707"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上就是使用 SwiftUI 展示 <code>SFSafariViewController</code> 的内容了，而且我们还对代码进行了封装，以后再有类似的需求，只需要在有链接的 View 上使用 <code>.handleOpenURLUseSafariView()</code> 方法即可。</p>
+<p><strong>这里每天分享一个 iOS 的新知识，快来关注我吧</strong></p>
+<blockquote>
+<p>本文同步自微信公众号 “<a href="https://link.juejin.cn/?target=https://mp.weixin.qq.com/s/7EwzlCrUVhkLLCUZcna3rg" title="https://mp.weixin.qq.com/s/7EwzlCrUVhkLLCUZcna3rg">iOS新知</a>”，每天准时分享一个新知识，这里只是同步，想要及时学到就来关注我吧！</p>
+</blockquote>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7381413498003619851">https://juejin.cn/post/7381413498003619851</a>，如有侵权，请联系删除。</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">I'm so cute. Please give me money.</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='二维码地址' target='_blank' >
+                       <img src="/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9C%B0%E5%9D%80" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/06/21/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/%E5%B9%B8%E7%A6%8F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%8A%E4%B8%8A%E7%AD%BE/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E9%9A%8F%E7%AC%94/">
+                    随笔
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/06/21/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/%E5%B9%B8%E7%A6%8F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%8A%E4%B8%8A%E7%AD%BE/" class="trm-anima-link">
+                    夏至已至
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/06/21</li>
+                <li>15:40</li>
+                
+                    <li>970</li>
+                
+                
+                    <li>3</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/06/21/iOS/iOS%E9%9A%90%E7%A7%81%E6%B8%85%E5%8D%95API%E6%A3%80%E6%B5%8B/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/iOS/">
+                    iOS
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/06/21/iOS/iOS%E9%9A%90%E7%A7%81%E6%B8%85%E5%8D%95API%E6%A3%80%E6%B5%8B/" class="trm-anima-link">
+                    iOS隐私清单API检测
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/06/21</li>
+                <li>15:15</li>
+                
+                    <li>1.7k</li>
+                
+                
+                    <li>7</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+        <div class="trm-footer-item">
+            <a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备xxxxxxxx号</a>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2022- 2024</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">白云苍狗</span>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.2.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.2
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+            
+<div class="trm-fixed-container">
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="搜索文章...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    请输入关键词进行搜索
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.2"></script>
+    
+
+    
+        
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.2.2"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.2"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

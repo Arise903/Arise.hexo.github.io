@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="开源库公开源代码，能看到具体实现，如SDWebImage，AFNetworking  闭源库不公开源代码，是经过编译后的二进制文件，看不到具体实现，主要分为静态库 和动态库  静态库和动态库的区别1、 形式上静态库是.a 和 .framework。 动态库是.dylib和 .framework ，xcode8 为.tbd ，本质是.dylib2、使用上：静态库，链接时，会被完整的复制到可执行文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 静态库 和 bundle">
+<meta property="og:url" content="http://example.com/2024/07/01/iOS/iOS%20%E9%9D%99%E6%80%81%E5%BA%93%20%E5%92%8C%20bundle/index.html">
+<meta property="og:site_name" content="Arise的博客">
+<meta property="og:description" content="开源库公开源代码，能看到具体实现，如SDWebImage，AFNetworking  闭源库不公开源代码，是经过编译后的二进制文件，看不到具体实现，主要分为静态库 和动态库  静态库和动态库的区别1、 形式上静态库是.a 和 .framework。 动态库是.dylib和 .framework ，xcode8 为.tbd ，本质是.dylib2、使用上：静态库，链接时，会被完整的复制到可执行文件">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-07-01T09:44:44.000Z">
+<meta property="article:modified_time" content="2024-07-01T10:18:36.492Z">
+<meta property="article:author" content="Arise">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >iOS 静态库 和 bundle</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.2' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.2' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/log.svg?v=2.2.2' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Arise","root":"/","typed_text":["Web Developer"],"theme_version":"2.2.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-07-01 18:18:36"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.2" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            白云<span>苍狗</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            iOS 静态库 和 bundle
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        白云苍狗
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:admin@imalun.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            07/01
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            17:44
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Arise
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <ul>
+<li><p>开源库<br>公开源代码，能看到具体实现，如SDWebImage，AFNetworking</p>
+</li>
+<li><p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现，主要分为静态库 和动态库</p>
+</li>
+<li><p>静态库和动态库的区别<br>1、 形式上<br>静态库是.a 和 .framework。 动态库是.dylib和 .framework ，xcode8 为.tbd ，本质是.dylib<br>2、使用上：<br>静态库，链接时，会被完整的复制到可执行文件中，如果多个APP 使用了同一个静态库，就会有多次拷贝，会占用更多的内存。<br>动态库，链接时不复制，程序运行时由系统动态的加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
+</li>
+<li><p>静态库的使用场景<br>1、制作SDK - 软件开发工具包。</p>
+<ul>
+<li>如“百度地图”，它想让开发者在程序中集成百度地图，但是百度又不想公开自己的技术</li>
+<li>百度将自己的核心代码编译成静态库，对外暴露统一的接口，开发者集成静态库，并且调用静态库即可集成</li>
+</ul>
+</li>
+</ul>
+<p>2、公司在开发项目时的核心代码</p>
+<ul>
+<li><p>公司一般在开发一个项目时，肯定有一部分代码是核心代码</p>
+</li>
+<li><p>如果任何人都可以拿到这个核心代码，那么一旦有人离职，公司的核心代码就会被泄露，那么如何防止这种情况的发生</p>
+</li>
+<li><p>公司一般都会抽出一部分核心团队成员，专门开发这部分核心代码。开发完成后，将核心代码编译成静态库给其他的程序员调用。</p>
+</li>
+<li><p>创建静态库<br>在创建静态库时，有以下两种选择</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-f2851511707cbc47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+</ul>
+<h5 id="看一下-framework-和-Static-Library-的区别"><a href="#看一下-framework-和-Static-Library-的区别" class="headerlink" title="看一下 framework 和 Static Library 的区别"></a>看一下 framework 和 Static Library 的区别</h5><ul>
+<li>framework 既可以制作静态库，也可以制作动态库。</li>
+<li>Static Library 制作静态库</li>
+<li>framework 实际上为一站式分享方案，其实是一个文件夹，其中包含代码签名，头文件，二进制执行文件，静态资源文件等，</li>
+<li>static Library 的产出物只是一个.a 文件，为二进制执行文件。分享给别人的时候，头文件，静态文件需要另外提供</li>
+<li>staticLibrary 需要设置头文件搜索路径，framework 不需要</li>
+</ul>
+<h5 id="对外部代码依赖库的区别"><a href="#对外部代码依赖库的区别" class="headerlink" title="对外部代码依赖库的区别"></a>对外部代码依赖库的区别</h5><ul>
+<li>staticLibrary 能够只引用外部库的头文件，调用外部库的公开方法，而不引入其库实现，实现与引用库的分离部署</li>
+<li>framework 要引用一个外部库，就必须要将此外部库的实现放入framework内编译才行。如果想要达到StaticLibrary 的效果，可以使用运行时方式调用。</li>
+</ul>
+<h5 id="运行环境的区别"><a href="#运行环境的区别" class="headerlink" title="运行环境的区别"></a>运行环境的区别</h5><ul>
+<li>staticLibrary 共享其运行环境，假如其运行环境中包含库中的一个类，会发生代码冲突，必须隔离其中一方的此类，然后共享此类。</li>
+<li>framework，与其运行环境隔离，假如其运行环境中包含库中同一个类，不会发生冲突，同名的两个类会在各自的环境中独立运行，互不干扰，哪怕是单利类</li>
+</ul>
+<h5 id="如何选择两种库"><a href="#如何选择两种库" class="headerlink" title="如何选择两种库"></a>如何选择两种库</h5><ul>
+<li>假如不想在同一个APP中包含多份三方库（减小包大小），可以使用staticLibrary，库本身和APP共享第三方。但是产出物的结构可能会比较乱</li>
+<li>假如不想考虑和APP的代码冲突问题，库本身独立使用需要的库，想提供比较好的库结构，可以使用framework。假如库本身和APP都使用了同一个三方库，会存在两份三方库，会增加包大小。</li>
+</ul>
+<h5 id="framework-的结构"><a href="#framework-的结构" class="headerlink" title="framework 的结构"></a>framework 的结构</h5><p><img src="//upload-images.jianshu.io/upload_images/3513176-3152c6648a3aa94a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/964/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h3 id="制作-framework-静态库（闭源库）"><a href="#制作-framework-静态库（闭源库）" class="headerlink" title="制作 .framework 静态库（闭源库）"></a>制作 .framework 静态库（闭源库）</h3><ul>
+<li><p>xcode打开，command+shift+N， 新建framework 工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-5071ba9751b9680a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>下面是framework 工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-a7924dd04e39edc9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>配置工程， 选择工程名-》General，选择支持的系统和平台</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-05a9e1ff31d2b2d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>非必选属性设置<br>build settings &gt; Dead Code Stripping -&gt; NO ， Link with Standard Libraries -&gt; NO<br>有的博客里说要将这两个属性设置为NO，但在xcode7以后不需要再把它们设置为NO。<br><code>Dead Code Stripping</code> ，如果开启此项，就会对代码的“dead”，“unreachable” 的代码过滤，能起到一定的优化作用，但是优化效果一般，对于比较小的项目甚至没有什么优化提现。<code>Dead Code Stripping</code> 是对程序编译出的可执行二进制文件中没有被实际使用的代码进行剥离，也就是消除无效代码。<br><code>Link with Standard Libraries</code> 如果激活此设置，那么编译器在链接过程中会自动使用通过标准库的链接器。如果使用NO，需要配置<code>Other Linker Flags</code> 来指定链接器。</p>
+</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-d378ffedf8718e73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li><code>Generate Debug Symbols 在release</code> 模式下设置为NO，debug 模式下设置为YES，是为了framework瘦身，为了进行代码调试，如果设置为NO，debug模式将不能进行断点调试，大约可以减少30%体积 （非必选）</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-0b6840ce510b1ad2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>必选配置<br><code>Build Settings &gt;&gt;Build Active Architecture Only -&gt; NO</code>，如果设置为YES，会导致编译器只生成当前CPU架构，这个适合在debug 模式下测试使用。<br>如果设置为NO，模拟器编译后生成的framework 同时包含x86_64 和 i386 架构。真机包含 armv7,arm64 架构。</li>
+<li>静态库配置<br><code>Build Settings &gt;&gt; Mach-O Type &gt;&gt; Static Library</code><br>对于Mach-O type 有两种类型 <code>Static Library</code> 是静态库，<code>Relocatable Object File</code> 是动态库。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-6d2c214708c5fb65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>可测试后再配置<br><code>Build Settings -&gt; Excluded Architectures</code>,在模拟器 模式下选择该项，添加arm64 架构，如果不设置此项，在xcode12 生成的模拟器版本 framework 会多一个arm64架构，这和真机模式下的架构有所冲突，会导致合并不成功。 真机模式下 不要添加此项。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-ea1134fee9d99fc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>创建SDK需要的目录和文件</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-1f57320e3506b3ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>公开头文件<br>把你想要对外公开的.h 文件 放到public 中，不想公开的就放在project 中。然后不要忘记 在<code>framework名称.h</code>里面导入你公开的头文件。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-745c323acbc15843.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-4787afabd3512aaa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h5 id="创建bundle-文件"><a href="#创建bundle-文件" class="headerlink" title="创建bundle 文件"></a>创建bundle 文件</h5><ul>
+<li>第一种 直接创建文件夹，修改后缀名为.bundle<br>bundle 文件是静态的，不参与项目的编译，而xib 是文本文件，编译后要被序列化为二进制的nib 文件，使用的时候将nib 文件反序列化就可以使用了。如果你的bundle 里没有xib 文件，只需要创建文件夹，修改后缀名就可以。 如果你的bundle里打算包含xib 文件，那么就必须使用第二种方法，创建工程的形式将xib 序列化为nib 文件。</li>
+<li>创建工程的形式<br>iOS 创建bundle（xcode 13） <a target="_blank" rel="noopener" href="https://www.jianshu.com/writer#/notebooks/21593564/notes/57586788">https://www.jianshu.com/writer#/notebooks/21593564/notes/57586788</a></li>
+</ul>
+<h5 id="在framework-中添加bundle-资源"><a href="#在framework-中添加bundle-资源" class="headerlink" title="在framework 中添加bundle 资源"></a>在framework 中添加bundle 资源</h5><ul>
+<li>将上文中创建的bundle 文件 拖入到framework工程，拖入后 copy bundle resources 中会自动引入。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-cf7f39cf0291439e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li><p><code>command +B</code>编译工程，在debug 和release 模式下 分别选择 真机和模拟器，在这里我用于测试，所以选的debug 模式，如果只为了测试 也可以只选择真机 或者模拟器。两个都选的话，后期要合并。<br>上文中提到，在模拟器中 要添加 arm64（上文有步骤，也可以亲自测试后再添加），防止合并中起冲突。</p>
+</li>
+<li><p>编译后 <code>command +,</code> 此图为模拟器中的framework，可以查看它支持的架构<br><code>lipo -info “绿色框地址”</code>，i386，x86_64</p>
+</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-43ce723f98aa97aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-d3865fbe2dc75f9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1148/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>同样的方式在真机下编译，查看架构</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-9ba83fabf3a9cce7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-29640b20a313b7fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1128/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>合并两个静态库，将合并后的输出路径 替换掉其中一个路径（模拟器或真机下的 framework 路径）<br>合并命令<code>lipo -create &quot;模拟器路径&quot; “真机路径” -output &quot;真机路径&quot;</code> （此处路径都是以上截图绿色框路径）</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-2debf0d8efb9c3a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1150/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>此处我替换的是模拟器路径，所以将替换后的framework拿出来就行了，也可以测试一下 合并后支持的架构</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-abfdc54e218b312c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-49d2a3e502dd6fbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1142/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h5 id="在项目工程中导入framework"><a href="#在项目工程中导入framework" class="headerlink" title="在项目工程中导入framework"></a>在项目工程中导入framework</h5><ul>
+<li>直接拖入工程</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-acc8630a76721496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>如果framework中包含了分类，那么要在使用framework的工程里配置一下<br>build settings里为Other Linker Flags 添加 -ObjC</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-48ebc1b538f2e7d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>如果framework有bundle 资源，选择添加copy files</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-318277f812d98148.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-05eeff3a7edf462d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1126/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>项目工程中使用，在用的地方 导入 framework 的头文件，就可以使用公开的头文件 和 方法</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-95ddf9b70e805c23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1110/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>工程 和 framework 中使用bundle 资源</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *bundlePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@&quot;LHNetwork.framework/HLNetworkSource&quot;</span> ofType:<span class="string">@&quot;bundle&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;bundlePath = %@&quot;</span>,bundlePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSBundle</span> *bundle = [<span class="built_in">NSBundle</span> bundleWithPath:bundlePath];</span><br><span class="line"><span class="built_in">NSString</span> *pic1 = [bundle pathForResource:<span class="string">@&quot;bill_head_bg@2x&quot;</span> ofType:<span class="string">@&quot;png&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;pic1 = %@&quot;</span>,pic1);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithContentsOfFile:pic1];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;image = %@&quot;</span>,image);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>还有一种，framework 中不用引入bundle，直接把bundle 导入项目工程，手动拖入就行</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-3db54cf0ddd9d859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>那么在工程和 framework中就可以用以下方式使用bundle中资源</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *bundlePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@&quot;HLNetworkSource&quot;</span> ofType:<span class="string">@&quot;bundle&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;bundlePath = %@&quot;</span>,bundlePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSBundle</span> *bundle = [<span class="built_in">NSBundle</span> bundleWithPath:bundlePath];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *imagePath = [bundle pathForResource:<span class="string">@&quot;bill_head_bg@2x&quot;</span> ofType:<span class="string">@&quot;png&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;imagePath = %@&quot;</span>,imagePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithContentsOfFile:imagePath];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;image = %@&quot;</span>,image);</span><br><span class="line"></span><br><span class="line">imageView.image = image;</span><br></pre></td></tr></table></figure>
+
+<h5 id="另一种将framework-导入工程的方式"><a href="#另一种将framework-导入工程的方式" class="headerlink" title="另一种将framework 导入工程的方式"></a>另一种将framework 导入工程的方式</h5><p>直接将xxx.framework SDK拖入工程不太方便测试，在工程中看不到源代码，我们可以把framework的工程文件导入 ，就是创建的framework工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-cbc59aea58341ab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1150/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>至于导入的方式，可以参考我的另一篇文章 <a target="_blank" rel="noopener" href="https://www.jianshu.com/writer#/notebooks/21593564/notes/100387726">多工程联编</a><br>这样很方便的修改和调试。</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>有的博客说，在上架App Store的时候，会有报错。可能需要把info.plist文件中的Excutable file删除，大家可以试一下，我没有实际操作。</p>
+<h5 id="补充说明，设备CPU架构"><a href="#补充说明，设备CPU架构" class="headerlink" title="补充说明，设备CPU架构"></a>补充说明，设备CPU架构</h5><p><img src="//upload-images.jianshu.io/upload_images/3513176-aabac5a0963e9364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/820/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>参考文章：<br><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://blog.csdn.net/jingcheng345413/article/details/54969324">https://blog.csdn.net/jingcheng345413/article/details/54969324</a><br><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.cnblogs.com/mtystar/p/6082363.html">https://www.cnblogs.com/mtystar/p/6082363.html</a></p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/437b56dd353e">https://www.jianshu.com/p/437b56dd353e</a>，如有侵权，请联系删除。</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">I'm so cute. Please give me money.</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='二维码地址' target='_blank' >
+                       <img src="/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9C%B0%E5%9D%80" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/07/01/iOS/iOS%E4%B9%8BMD5%E5%8A%A0%E5%AF%86%E3%80%81%E5%8A%A0%E7%9B%90/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/iOS/">
+                    iOS
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/07/01/iOS/iOS%E4%B9%8BMD5%E5%8A%A0%E5%AF%86%E3%80%81%E5%8A%A0%E7%9B%90/" class="trm-anima-link">
+                    iOS之MD5加密、加盐
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/07/01</li>
+                <li>17:55</li>
+                
+                    <li>375</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/06/22/%E5%85%BB%E7%94%9F/%E6%9C%80%E5%A5%BD%E7%9A%84%E7%BB%8F%E7%BB%9C%E8%BF%90%E5%8A%A8%EF%BC%8C%E5%AF%B9%E6%85%A2%E6%80%A7%E7%97%85%E5%92%8C%E6%8A%91%E9%83%81%E7%97%87%E6%9C%89%E7%89%B9%E6%95%88/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%85%BB%E7%94%9F/">
+                    养生
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/06/22/%E5%85%BB%E7%94%9F/%E6%9C%80%E5%A5%BD%E7%9A%84%E7%BB%8F%E7%BB%9C%E8%BF%90%E5%8A%A8%EF%BC%8C%E5%AF%B9%E6%85%A2%E6%80%A7%E7%97%85%E5%92%8C%E6%8A%91%E9%83%81%E7%97%87%E6%9C%89%E7%89%B9%E6%95%88/" class="trm-anima-link">
+                    最好的经络运动，对慢性病和抑郁症有特效
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/06/22</li>
+                <li>19:25</li>
+                
+                    <li>1.5k</li>
+                
+                
+                    <li>4</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+        <div class="trm-footer-item">
+            <a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备xxxxxxxx号</a>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2022- 2024</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">白云苍狗</span>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.2.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.2
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+            
+<div class="trm-fixed-container">
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="搜索文章...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    请输入关键词进行搜索
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.2"></script>
+    
+
+    
+        
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.2.2"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.2"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

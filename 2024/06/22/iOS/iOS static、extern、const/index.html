@@ -7,22 +7,20 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="问题描述使用UITableViewDelegate代理方法来设置header或footer时要注意了。 123456- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section &#123;    return [UIView new];&#125;- (CGFloat)tableV">
+<meta name="description" content="全局变量在函数外声明的变量，可以在声明时附上初始值，存储在全局区，生命周期为整个程序运行期间。 12345678#import &quot;SEObject.h&quot;&#x2F;&#x2F;定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）NSString * SEString &#x3D; @&quot;SEString&amp;quo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用UITableViewDelegate代理方法来设置header或footer时要注意的细节">
-<meta property="og:url" content="http://example.com/2024/06/22/iOS/%E4%BD%BF%E7%94%A8UITableViewDelegate%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95%E6%9D%A5%E8%AE%BE%E7%BD%AEheader%E6%88%96footer%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%BB%86%E8%8A%82/index.html">
+<meta property="og:title" content="iOS static、extern、const">
+<meta property="og:url" content="http://example.com/2024/06/22/iOS/iOS%20static%E3%80%81extern%E3%80%81const/index.html">
 <meta property="og:site_name" content="Arise的博客">
-<meta property="og:description" content="问题描述使用UITableViewDelegate代理方法来设置header或footer时要注意了。 123456- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section &#123;    return [UIView new];&#125;- (CGFloat)tableV">
+<meta property="og:description" content="全局变量在函数外声明的变量，可以在声明时附上初始值，存储在全局区，生命周期为整个程序运行期间。 12345678#import &quot;SEObject.h&quot;&#x2F;&#x2F;定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）NSString * SEString &#x3D; @&quot;SEString&amp;quo">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="article:published_time" content="2024-06-22T03:50:54.000Z">
-<meta property="article:modified_time" content="2024-07-01T09:37:26.701Z">
+<meta property="article:published_time" content="2024-06-22T11:09:22.000Z">
+<meta property="article:modified_time" content="2024-06-22T11:11:17.248Z">
 <meta property="article:author" content="Arise">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >使用UITableViewDelegate代理方法来设置header或footer时要注意的细节</title>
+<title >iOS static、extern、const</title>
 
 <!-- Favicon -->
 
@@ -65,7 +63,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Arise","root":"/","typed_text":["Web Developer"],"theme_version":"2.2.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"log.svg","icon16":"log.svg","icon32":"log.svg","apple_touch_icon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-07-01 17:37:26"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-06-22 19:11:17"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.2" id="trm-switch-style">
@@ -220,7 +218,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            使用UITableViewDelegate代理方法来设置header或footer时要注意的细节
+                            iOS static、extern、const
                         </h1>
 
                         
@@ -333,7 +331,7 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            11:50
+            19:09
         </div>
     </div>
     <div class="col-sm-4">
@@ -345,21 +343,44 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用<code>UITableViewDelegate</code>代理方法来设置<code>header</code>或<code>footer</code>时要注意了。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForFooterInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">UIView</span> new];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForFooterInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>在<code>函数外声明的变量</code>，<code>可以在声明时附上初始值</code>，<code>存储在全局区</code>，<code>生命周期为整个程序运行期间</code>。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）</span></span><br><span class="line"><span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">UIView</span> new];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="comment">//#import &quot;SEObject.h&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 
-<p><code>UITableView</code>在<code>UI</code>布局中使用的场景很多，比如下图：  </p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3096256-c2095f8ecf25842c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1125/format/webp" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>使用场景：让<code>UITableView</code>的<code>contentSize</code>的高度和父控件的高度一致。</p>
+<p><strong>源程序中不能存在相同的对象名，否则编译器报错（<code>1 duplicate symbol for architecture x86_64</code>）</strong></p>
+<h4 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h4><p>此时如果其它源文件想要访问该全局变量，需要声明<code>extern</code>。</p>
 <ul>
-<li>没有使用分组（即没有设置<code>header</code>或<code>footer</code>），这个时候通过获取<code>UITableView</code>的<code>contentSize</code>的高度来设置父控件的高度，显示出来的效果是正常的；</li>
-<li>⚠️⚠️使用了分组（即设置了<code>header</code>或<code>footer</code>），这个时候通过获取<code>UITableView</code>的<code>contentSize</code>的高度来设置父控件的高度，显示出来的效果是不正常的；</li>
+<li>在使用的类中<code>extern 全局变量</code>,此时不要要引入全局变量所在类。</li>
 </ul>
-<h1 id="剖析"><a href="#剖析" class="headerlink" title="剖析"></a>剖析</h1><p>举例：当我们使用<code>UITableViewDelegate</code>代理方法来设置<code>footer</code>时，先调用<br><code>- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;</code>，<br>然后调用<br><code>- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;</code>，<br>但是当我们设置<code>footer</code>的高度为<code>0</code>或<code>CGFLOAT_MIN</code>时，执行完<br><code>- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;</code>，<br>就不会调用<br><code>- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;</code>，<br>所以这个时候通过获取<code>UITableView</code>的<code>contentSize</code>的高度来设置父控件的高度，显示出来的效果是不正常了。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>当我们使用<code>UITableViewDelegate</code>代理方法来设置<code>header</code>或<code>footer</code>时，尽量不要给<code>header</code>或<code>footer</code>的高度设为<code>0</code>或<code>CGFLOAT_MIN</code>，应该设置一个很小的高度，<code>eg</code>：<code>1</code>，<code>2...</code>。</p>
-<p>本文转自 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/57cd980a1706">https://www.jianshu.com/p/57cd980a1706</a>，如有侵权，请联系删除。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="comment">//#import &quot;SEObject.h&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="built_in">NSString</span> * SEString;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在全局变量所在类的<code>.h文件</code>中声明该全局变量外部使用（<strong>推荐</strong>）。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * SEString;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SEObject</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="comment">//extern NSString * SEString;</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">SEString</span><br><span class="line">SEString2</span><br></pre></td></tr></table></figure>
+
+<h4 id="static-静态全局变量"><a href="#static-静态全局变量" class="headerlink" title="static - 静态全局变量"></a>static - 静态全局变量</h4><p>用static修饰的全局变量为静态全局变量，存储在全局区，生命周期为整个程序运行期间。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SEString</span><br><span class="line">SEString2</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>static</code>不能与<code>extern</code>组合使用，否则报错：<code>Cannot combine with previous &#39;extern&#39; declaration specifier</code></strong></p>
+<p><strong>声明在.h文件时，引入该类，依然可以使用并修改此静态全局变量；<br>声明在.m文件时，两个类文件可是使用相同变量名，彼此相互独立。</strong></p>
+<h6 id="全局变量和静态变量区别（摘抄）"><a href="#全局变量和静态变量区别（摘抄）" class="headerlink" title="全局变量和静态变量区别（摘抄）"></a>全局变量和静态变量区别（摘抄）</h6><p>两者的区别虽在于非静态全局变量的作用域是整个源程序，当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。 而静态全局变量则限制了其作用域，即只在定义该变量的源文件内有效，在同一源程序的其它源文件中不能使用它。由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数公用，因此可以避免在其它源文件中引起错误。</p>
+<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><p><code>const</code>修饰的变量是不可变的。<br>正确用法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>以下两种写法<code>const</code>修饰的是<code>* SEString</code>,<code>*</code>是指针指向符，也就是说此时<code>指向内存地址是不可变的</code>，而<code>内存保存的内容时可变的</code>。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> <span class="keyword">const</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p>函数内部声明的变量，仅在当前函数执行期间存在。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> c = a+b;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;c = %ld&quot;</span>,c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="static-静态局部变量"><a href="#static-静态局部变量" class="headerlink" title="static - 静态局部变量"></a>static - 静态局部变量</h4><p>用static修饰的局部变量为静态局部变量，存储在全局区，生命周期为整个程序运行期间。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSInteger</span> c2;</span><br><span class="line">    c2 += a+b;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;c2 = %ld&quot;</span>,c2);</span><br><span class="line">&#125;</span><br><span class="line">调用两次结果：</span><br><span class="line">c2 = <span class="number">3</span></span><br><span class="line">c2 = <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>本文转自 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ef9c4f0a084c">https://www.jianshu.com/p/ef9c4f0a084c</a>，如有侵权，请联系删除。</p>
 
 </article>
     
@@ -396,7 +417,7 @@
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2024/06/22/iOS/iOS%20static%E3%80%81extern%E3%80%81const/" class="trm-cover-frame trm-anima-link">
+        <a href="/2024/06/22/%E5%85%BB%E7%94%9F/%E5%81%9A%E5%A5%BD%E4%BA%8B%E5%8F%AF%E4%BB%A5%E9%A9%B1%E9%82%AA/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/block.jpg">
@@ -405,24 +426,24 @@
         
         <div class="trm-card-descr">
             <div class="trm-label trm-category trm-mb-20">
-                <a href=" /categories/iOS/">
-                    iOS
+                <a href=" /categories/%E5%85%BB%E7%94%9F/">
+                    养生
                 </a>
             </div>
             <h5>
-                <a href="/2024/06/22/iOS/iOS%20static%E3%80%81extern%E3%80%81const/" class="trm-anima-link">
-                    iOS static、extern、const
+                <a href="/2024/06/22/%E5%85%BB%E7%94%9F/%E5%81%9A%E5%A5%BD%E4%BA%8B%E5%8F%AF%E4%BB%A5%E9%A9%B1%E9%82%AA/" class="trm-anima-link">
+                    做好事可以驱邪
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
                 <li>24/06/22</li>
-                <li>19:09</li>
+                <li>19:22</li>
                 
-                    <li>869</li>
+                    <li>404</li>
                 
                 
-                    <li>3</li>
+                    <li>1</li>
                 
             </ul>
         </div>
@@ -432,7 +453,7 @@
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2024/06/22/iOS/LEETheme%E4%BC%98%E9%9B%85%E7%9A%84%E4%B8%BB%E9%A2%98%E7%AE%A1%E7%90%86%E5%BA%93/" class="trm-cover-frame trm-anima-link">
+        <a href="/2024/06/22/iOS/%E4%BD%BF%E7%94%A8UITableViewDelegate%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95%E6%9D%A5%E8%AE%BE%E7%BD%AEheader%E6%88%96footer%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%BB%86%E8%8A%82/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/block.jpg">
@@ -446,19 +467,19 @@
                 </a>
             </div>
             <h5>
-                <a href="/2024/06/22/iOS/LEETheme%E4%BC%98%E9%9B%85%E7%9A%84%E4%B8%BB%E9%A2%98%E7%AE%A1%E7%90%86%E5%BA%93/" class="trm-anima-link">
-                    LEETheme优雅的主题管理库
+                <a href="/2024/06/22/iOS/%E4%BD%BF%E7%94%A8UITableViewDelegate%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95%E6%9D%A5%E8%AE%BE%E7%BD%AEheader%E6%88%96footer%E6%97%B6%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%BB%86%E8%8A%82/" class="trm-anima-link">
+                    使用UITableViewDelegate代理方法来设置header或footer时要注意的细节
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
                 <li>24/06/22</li>
-                <li>11:22</li>
+                <li>11:50</li>
                 
-                    <li>1.2k</li>
+                    <li>370</li>
                 
                 
-                    <li>4</li>
+                    <li>1</li>
                 
             </ul>
         </div>

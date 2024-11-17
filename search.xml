@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/06/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/2024/06/21/about/me/</url>
     <content><![CDATA[]]></content>
@@ -253,14 +235,6 @@
       </categories>
   </entry>
   <entry>
-    <title>养生/me</title>
-    <url>/2024/06/22/%E5%85%BB%E7%94%9F/%E5%85%BB%E7%94%9F-me/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>养生</category>
-      </categories>
-  </entry>
-  <entry>
     <title>接口规范纪要</title>
     <url>/2024/06/22/iOS/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E7%BA%AA%E8%A6%81/</url>
     <content><![CDATA[<h3 id="HTTP请求一般采用GET-和-POST"><a href="#HTTP请求一般采用GET-和-POST" class="headerlink" title="HTTP请求一般采用GET 和 POST:"></a>HTTP请求一般采用GET 和 POST:</h3><ul>
@@ -371,7 +345,7 @@
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对于日间夜间模式切换 , 多种色调主题切换 , 这类的需求可以说在阅读社交类APP中屡见不鲜了 , 但如何能更方便的实现这一需求呢? 不要说给每个自定义的view神马的加个通知 然后在通知事件里设置各种属性的颜色图片等等 , NO , 那不是一个好的Coder该做的事 , 我们应该追求用最简单的方式去完成最繁琐的事 , 正是出于这些原因 , 我开发了这个主题管理库 今天开源出来分享给大家 —– <a href="https://link.jianshu.com/?t=https://github.com/lixiang1994/LEETheme">LEETheme</a></p>
 <h2 id="LEETheme"><a href="#LEETheme" class="headerlink" title="LEETheme"></a><a href="https://link.jianshu.com/?t=https://github.com/lixiang1994/LEETheme">LEETheme</a></h2><p>什么是LEETheme ? 它是一个轻量级主题管理开源库 , 完美的适配系统版本差异 , 拥有良好的兼容性 , 任何对象都可以支持 , 优雅的使用方式 , 相比传统多主题处理方式而言 , LEETheme 只需一句代码 即可完成对象多样式的操作.</p>
 <hr>
-<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><p><img src="//upload-images.jianshu.io/upload_images/1335095-8531a1676fb44cc6.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/320/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><p><img src="https://upload-images.jianshu.io/upload_images/1335095-8531a1676fb44cc6.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/320/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>朋友圈Demo演示</p>
 <hr>
 <h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>LEETheme 提供了两种设置方式 这里做一下简单的演示:</p>
@@ -426,7 +400,7 @@
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">UIView</span> new];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>UITableView</code>在<code>UI</code>布局中使用的场景很多，比如下图：  </p>
-<p><img src="//upload-images.jianshu.io/upload_images/3096256-c2095f8ecf25842c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1125/format/webp" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3096256-c2095f8ecf25842c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1125/format/webp" alt="image.png"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>使用场景：让<code>UITableView</code>的<code>contentSize</code>的高度和父控件的高度一致。</p>
 <ul>
 <li>没有使用分组（即没有设置<code>header</code>或<code>footer</code>），这个时候通过获取<code>UITableView</code>的<code>contentSize</code>的高度来设置父控件的高度，显示出来的效果是正常的；</li>
@@ -435,6 +409,353 @@
 <h1 id="剖析"><a href="#剖析" class="headerlink" title="剖析"></a>剖析</h1><p>举例：当我们使用<code>UITableViewDelegate</code>代理方法来设置<code>footer</code>时，先调用<br><code>- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;</code>，<br>然后调用<br><code>- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;</code>，<br>但是当我们设置<code>footer</code>的高度为<code>0</code>或<code>CGFLOAT_MIN</code>时，执行完<br><code>- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;</code>，<br>就不会调用<br><code>- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;</code>，<br>所以这个时候通过获取<code>UITableView</code>的<code>contentSize</code>的高度来设置父控件的高度，显示出来的效果是不正常了。</p>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>当我们使用<code>UITableViewDelegate</code>代理方法来设置<code>header</code>或<code>footer</code>时，尽量不要给<code>header</code>或<code>footer</code>的高度设为<code>0</code>或<code>CGFLOAT_MIN</code>，应该设置一个很小的高度，<code>eg</code>：<code>1</code>，<code>2...</code>。</p>
 <p>本文转自 <a href="https://www.jianshu.com/p/57cd980a1706">https://www.jianshu.com/p/57cd980a1706</a>，如有侵权，请联系删除。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>何以消火</title>
+    <url>/2024/06/22/%E5%85%BB%E7%94%9F/%E4%BD%95%E4%BB%A5%E6%B6%88%E7%81%AB/</url>
+    <content><![CDATA[<p>天气一热，也不知道哪里来的火气，接连一个星期了，喉咙疼，舌头疼，嘴唇还起了小泡泡，疼到难过处，连吃饭都是困难，舌头根本卷不过来。</p>
+<p>从网上查了方法，用白胡椒冲鸡蛋茶，连喝了三天，不见有几多好转，干脆还用老办法，白糖、香油冲鸡蛋茶，Z医里美其名曰“朱雀汤”。可还是疼啊，期末考试第一天，豆宝发烧，老大上门问诊，给她扎了退烧针，也顺便给我扎了两下，喉咙确实有好转，可舌头还是疼。</p>
+<p>这两天，连续喝的朱雀汤有了些作用，可牙龈又疼起来了。</p>
+<p>哎呀呀，上火不是病，灭火真头疼，到底何以消火呢？</p>
+]]></content>
+      <categories>
+        <category>养生</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>最好的经络运动，对慢性病和抑郁症有特效</title>
+    <url>/2024/06/22/%E5%85%BB%E7%94%9F/%E6%9C%80%E5%A5%BD%E7%9A%84%E7%BB%8F%E7%BB%9C%E8%BF%90%E5%8A%A8%EF%BC%8C%E5%AF%B9%E6%85%A2%E6%80%A7%E7%97%85%E5%92%8C%E6%8A%91%E9%83%81%E7%97%87%E6%9C%89%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/19090925-537e15c7218bf825.jpg" alt="图片发自简书App"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>图片发自简书App</p>
+<p>经络是人体内气血运行的通道，也叫做生命力的通道。经络通过特有的组织和联络系统来联系各个组织和器官，疏通人体表里、上下、内外、左右，进而让人体成为有机的统一体。只有经络疏通了，人体才能成为完整的有机体，可以说，经络就是人体的生命之路。  </p>
+<p>如果经络畅通无阻，气血得以顺畅流通，身体就能维持健康。如果经络被堵塞，气血不能运行，停滞在身体的任何一个部位，身体就会发生病变。  </p>
+<p>大拜就是通过反复的屈伸运动来提高全身3关节的柔韧性，同时也刺激人体14大经脉，从而达到活血健体、疏通经脉的效果。</p>
+<p>这一运动还能使心灵得以安定，进而使身体内在的免疫力、自然治愈能力达到极致，最终预防或治愈疾病。  </p>
+<p>大拜是最适合现代人的运动，也是让身心同时恢复健康的运动方式，坚持做一段时间，对于打通经络、调养气血有不可思议的功效，同时对各种慢性病、神经官能症、抑郁症等等都有非常好的效果。  </p>
+<p>大拜简单易学，不需要任何费用，人人都可以学会，随时随地都可以练习，并且比其他运动的效果更好，持续性更强。  </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19090925-fe390f4434c63b05.jpg" alt="图片发自简书App"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>图片发自简书App</p>
+<p>下面，介绍一下大拜的好处。</p>
+<p>一、大拜打通哪些经络  </p>
+<p>做大拜时，最大限度地放松身体，使身体变得轻盈柔软，这样才能做好每一个动作，全身的气血循环也更加畅通。  </p>
+<p>大拜第一步由合掌开始，两手合十时，就能把手上六条经络连在一起。肺、大肠、心脏、小肠、三焦的经络在合掌的时候通过手心互相连接。此时应平心静气，收敛心神，做内心观想，从而进入身心灵的整体调整时段。  </p>
+<p>第二步伸展手臂，向上高举，这时手六经、足六经处于最大伸展的姿势，这个动作伸筋拔骨，拉长四肢，有益健康。高举双臂这一姿势还能让上丹田敞开一扇门，把体内淤滞的气调动开来，同时伸展脊椎，对于平时因不良姿势引起的各种慢性病有着独特的疗效。  </p>
+<p>第三步身体向前倾，腰、膝、腿依次弯曲。同时刺激足六经和下丹田及任督二脉，补阳强正、并使消化系统、泌尿系统、解毒功能得到强化。  </p>
+<p>最后，大拜完毕起身的动作正是大拜时的相反运动，重新刺激手六经、任督二脉、足六经。  </p>
+<p>二、大拜的注意事项  </p>
+<p>大拜时一定要意识到呼吸和动作是整体的，锻炼身体和修心同时进行。在做运动的时候，避免过于快速的跪拜。呼吸平稳的速度最为恰当。大拜不是为了单纯加强心肺功能的运动，所以快速的、激烈的跪拜活动没有意义，而缓慢的、内敛的跪拜更加有效果。  </p>
+<p>做大拜时，要把窗户打开，使室内空气流通。因为大拜可以使身体内的邪气通过呼吸排除，因此在封闭的室内做大拜，效果就会下降。  </p>
+<p>做大拜最好事先准备垫子。在坚硬的地板上很容易导致膝部受伤，垫子选用大小适中即可，现在网上就能购买到，非常方便。  </p>
+<p>做完大拜后不能马上进行洗浴。通过大拜，体内的邪气被排除出去，并吸收了精华之气，身体处于兴奋状态。这时如果用水清洗，会使现有的状态变得紊乱，产生反效果。所以做完后先喝点热水，休息一会儿，等身体内的气血平静后再去洗浴。  </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19090925-f6a6caaa4b5c5b71.gif" alt="图片发自简书App"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>图片发自简书App</p>
+<p>三、大拜的好处  </p>
+<p>大拜是低强度的有氧运动，从头顶的百会穴到脚底的涌泉穴、四肢末端的经穴，人体内14条经脉都会被疏通，一次跪拜配合一呼一吸，身体所有部分的筋骨都得以拉伸，血液循环也加快了，在这些看似单调的重复跪拜中，身体中的病邪随着呼出的浊气和汗液排出体外。</p>
+<p>身体中的气足了，血液循环通畅了，自然就病邪不侵，健康长寿。所以，大拜不是耗费气力的运动，而是调理气血的运动。  </p>
+<p>大拜是一种没有时间、地点限制，能救活身心的运动，是最适合忙碌的现代人保持身心健康的运动。与跑步、球类等剧烈的运动相比，大拜运动运动运动的活动量要少一些，可在每一个动作和每一次呼吸中，都能得到反省和冥想，所以比单一的体力运动要高一个层次，对于神经的调节来说是不可多得的理想运动。  </p>
+<p>中医认为抑郁症乃由情志失调致气机郁滞而发病，其与脑主人体精神意识密切相关， 治疗可从疏通脑络、调理神志着手。而督脉上入属于脑，其经气旁通太阳之脉，可调节脑及五脏六腑之气机。</p>
+<p>若阳气不达，或经络阻滞，督脉经气运行不畅，不能上输精髓以养脑，则可出现抑郁等神志病，故治疗抑郁症时应重视调理督脉。希望大家都能通过大拜来找回身心健康，得到幸福。</p>
+]]></content>
+      <categories>
+        <category>养生</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>iOS static、extern、const</title>
+    <url>/2024/06/22/iOS/iOS%20static%E3%80%81extern%E3%80%81const/</url>
+    <content><![CDATA[<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>在<code>函数外声明的变量</code>，<code>可以在声明时附上初始值</code>，<code>存储在全局区</code>，<code>生命周期为整个程序运行期间</code>。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）</span></span><br><span class="line"><span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="comment">//#import &quot;SEObject.h&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>源程序中不能存在相同的对象名，否则编译器报错（<code>1 duplicate symbol for architecture x86_64</code>）</strong></p>
+<h4 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h4><p>此时如果其它源文件想要访问该全局变量，需要声明<code>extern</code>。</p>
+<ul>
+<li>在使用的类中<code>extern 全局变量</code>,此时不要要引入全局变量所在类。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="comment">//#import &quot;SEObject.h&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="keyword">extern</span> <span class="built_in">NSString</span> * SEString;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在全局变量所在类的<code>.h文件</code>中声明该全局变量外部使用（<strong>推荐</strong>）。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * SEString;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SEObject</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEView.h&quot;</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString * SEString;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEView</span></span></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="comment">//extern NSString * SEString;</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">SEString</span><br><span class="line">SEString2</span><br></pre></td></tr></table></figure>
+
+<h4 id="static-静态全局变量"><a href="#static-静态全局变量" class="headerlink" title="static - 静态全局变量"></a>static - 静态全局变量</h4><p>用static修饰的全局变量为静态全局变量，存储在全局区，生命周期为整个程序运行期间。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;SEObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义在.h文件中时该类被其他文件引入时报重复定义的错误（1 duplicate symbol for architecture x86_64）</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">    SEString = <span class="string">@&quot;SEString2&quot;</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,SEString);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SEString</span><br><span class="line">SEString2</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>static</code>不能与<code>extern</code>组合使用，否则报错：<code>Cannot combine with previous &#39;extern&#39; declaration specifier</code></strong></p>
+<p><strong>声明在.h文件时，引入该类，依然可以使用并修改此静态全局变量；<br>声明在.m文件时，两个类文件可是使用相同变量名，彼此相互独立。</strong></p>
+<h6 id="全局变量和静态变量区别（摘抄）"><a href="#全局变量和静态变量区别（摘抄）" class="headerlink" title="全局变量和静态变量区别（摘抄）"></a>全局变量和静态变量区别（摘抄）</h6><p>两者的区别虽在于非静态全局变量的作用域是整个源程序，当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。 而静态全局变量则限制了其作用域，即只在定义该变量的源文件内有效，在同一源程序的其它源文件中不能使用它。由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数公用，因此可以避免在其它源文件中引起错误。</p>
+<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><p><code>const</code>修饰的变量是不可变的。<br>正确用法：</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>以下两种写法<code>const</code>修饰的是<code>* SEString</code>,<code>*</code>是指针指向符，也就是说此时<code>指向内存地址是不可变的</code>，而<code>内存保存的内容时可变的</code>。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> <span class="keyword">const</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">NSString</span> * SEString = <span class="string">@&quot;SEString&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p>函数内部声明的变量，仅在当前函数执行期间存在。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SEObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> c = a+b;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;c = %ld&quot;</span>,c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="static-静态局部变量"><a href="#static-静态局部变量" class="headerlink" title="static - 静态局部变量"></a>static - 静态局部变量</h4><p>用static修饰的局部变量为静态局部变量，存储在全局区，生命周期为整个程序运行期间。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)add &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSInteger</span> c2;</span><br><span class="line">    c2 += a+b;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;c2 = %ld&quot;</span>,c2);</span><br><span class="line">&#125;</span><br><span class="line">调用两次结果：</span><br><span class="line">c2 = <span class="number">3</span></span><br><span class="line">c2 = <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>本文转自 <a href="https://www.jianshu.com/p/ef9c4f0a084c">https://www.jianshu.com/p/ef9c4f0a084c</a>，如有侵权，请联系删除。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>做好事可以驱邪</title>
+    <url>/2024/06/22/%E5%85%BB%E7%94%9F/%E5%81%9A%E5%A5%BD%E4%BA%8B%E5%8F%AF%E4%BB%A5%E9%A9%B1%E9%82%AA/</url>
+    <content><![CDATA[<p>人类，只有出事了，</p>
+<p>你才会善良吗？</p>
+<p>只有出车祸、瘫痪了，</p>
+<p>只有被打残废了，</p>
+<p>只有钱被骗完了，</p>
+<p>让苦难打击你，你才会善良吗？</p>
+<p>从现在开始就开始善良吧！</p>
+<p>不要再恶语伤害别人，</p>
+<p>不要再恶意打击别人，</p>
+<p>不要做伤天害理的事，</p>
+<p>不要浪费别人的时间，</p>
+<p>不要欺负别人的孩子，</p>
+<p>不要揭露别人的隐私，</p>
+<p>不要不孝顺老人</p>
+<p>……等等。</p>
+<p>但凡做错一件事，就证明了你的不善。</p>
+<p>善良有什么好？</p>
+<p>别小看它，</p>
+<p>它可是解决冲突的办法，</p>
+<p>它可以保护亲人、朋友及你爱的人，</p>
+<p>它可以让你有活着的立足点，</p>
+<p>它可以激起你强大的力量来击退敌人，</p>
+<p>它可以产生如核弹的威力让一个妖邪之地寸草不生。</p>
+<p>做个100％善良的好人不容易，</p>
+<p>需要一辈子去修，</p>
+<p>不要出一点差错，</p>
+<p>不要等出事故了，</p>
+<p>再向人生低头，</p>
+<p>再去强迫自己善良，</p>
+<p>那样已经开始受罪了，</p>
+<p>为时已晚。</p>
+<p>防患于未然，</p>
+<p>从现在开始起我们就善良，</p>
+<p>说好话，做好事，</p>
+<p>这样老天爷也会保佑我们不出事，</p>
+<p>享受福报、生活坦然，</p>
+<p>即使有什么事别人也会乐意帮忙。</p>
+<p>恶魔让我们的生活充满灾难，</p>
+<p>举步维艰、难以进行，</p>
+<p>唯有善良、行好是避免、解救灾难的唯一办法，</p>
+<p>做好人好事可以幸运，</p>
+<p>善良者悦人悦己，</p>
+<p>我们必须要朝这个方向走下去。</p>
+]]></content>
+      <categories>
+        <category>养生</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>iOS 静态库 和 bundle</title>
+    <url>/2024/07/01/iOS/iOS%20%E9%9D%99%E6%80%81%E5%BA%93%20%E5%92%8C%20bundle/</url>
+    <content><![CDATA[<ul>
+<li><p>开源库<br>公开源代码，能看到具体实现，如SDWebImage，AFNetworking</p>
+</li>
+<li><p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现，主要分为静态库 和动态库</p>
+</li>
+<li><p>静态库和动态库的区别<br>1、 形式上<br>静态库是.a 和 .framework。 动态库是.dylib和 .framework ，xcode8 为.tbd ，本质是.dylib<br>2、使用上：<br>静态库，链接时，会被完整的复制到可执行文件中，如果多个APP 使用了同一个静态库，就会有多次拷贝，会占用更多的内存。<br>动态库，链接时不复制，程序运行时由系统动态的加载到内存，供程序调用，系统只加载一次，多个程序共用，节省内存。</p>
+</li>
+<li><p>静态库的使用场景<br>1、制作SDK - 软件开发工具包。</p>
+<ul>
+<li>如“百度地图”，它想让开发者在程序中集成百度地图，但是百度又不想公开自己的技术</li>
+<li>百度将自己的核心代码编译成静态库，对外暴露统一的接口，开发者集成静态库，并且调用静态库即可集成</li>
+</ul>
+</li>
+</ul>
+<p>2、公司在开发项目时的核心代码</p>
+<ul>
+<li><p>公司一般在开发一个项目时，肯定有一部分代码是核心代码</p>
+</li>
+<li><p>如果任何人都可以拿到这个核心代码，那么一旦有人离职，公司的核心代码就会被泄露，那么如何防止这种情况的发生</p>
+</li>
+<li><p>公司一般都会抽出一部分核心团队成员，专门开发这部分核心代码。开发完成后，将核心代码编译成静态库给其他的程序员调用。</p>
+</li>
+<li><p>创建静态库<br>在创建静态库时，有以下两种选择</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-f2851511707cbc47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+</ul>
+<h5 id="看一下-framework-和-Static-Library-的区别"><a href="#看一下-framework-和-Static-Library-的区别" class="headerlink" title="看一下 framework 和 Static Library 的区别"></a>看一下 framework 和 Static Library 的区别</h5><ul>
+<li>framework 既可以制作静态库，也可以制作动态库。</li>
+<li>Static Library 制作静态库</li>
+<li>framework 实际上为一站式分享方案，其实是一个文件夹，其中包含代码签名，头文件，二进制执行文件，静态资源文件等，</li>
+<li>static Library 的产出物只是一个.a 文件，为二进制执行文件。分享给别人的时候，头文件，静态文件需要另外提供</li>
+<li>staticLibrary 需要设置头文件搜索路径，framework 不需要</li>
+</ul>
+<h5 id="对外部代码依赖库的区别"><a href="#对外部代码依赖库的区别" class="headerlink" title="对外部代码依赖库的区别"></a>对外部代码依赖库的区别</h5><ul>
+<li>staticLibrary 能够只引用外部库的头文件，调用外部库的公开方法，而不引入其库实现，实现与引用库的分离部署</li>
+<li>framework 要引用一个外部库，就必须要将此外部库的实现放入framework内编译才行。如果想要达到StaticLibrary 的效果，可以使用运行时方式调用。</li>
+</ul>
+<h5 id="运行环境的区别"><a href="#运行环境的区别" class="headerlink" title="运行环境的区别"></a>运行环境的区别</h5><ul>
+<li>staticLibrary 共享其运行环境，假如其运行环境中包含库中的一个类，会发生代码冲突，必须隔离其中一方的此类，然后共享此类。</li>
+<li>framework，与其运行环境隔离，假如其运行环境中包含库中同一个类，不会发生冲突，同名的两个类会在各自的环境中独立运行，互不干扰，哪怕是单利类</li>
+</ul>
+<h5 id="如何选择两种库"><a href="#如何选择两种库" class="headerlink" title="如何选择两种库"></a>如何选择两种库</h5><ul>
+<li>假如不想在同一个APP中包含多份三方库（减小包大小），可以使用staticLibrary，库本身和APP共享第三方。但是产出物的结构可能会比较乱</li>
+<li>假如不想考虑和APP的代码冲突问题，库本身独立使用需要的库，想提供比较好的库结构，可以使用framework。假如库本身和APP都使用了同一个三方库，会存在两份三方库，会增加包大小。</li>
+</ul>
+<h5 id="framework-的结构"><a href="#framework-的结构" class="headerlink" title="framework 的结构"></a>framework 的结构</h5><p><img src="//upload-images.jianshu.io/upload_images/3513176-3152c6648a3aa94a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/964/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h3 id="制作-framework-静态库（闭源库）"><a href="#制作-framework-静态库（闭源库）" class="headerlink" title="制作 .framework 静态库（闭源库）"></a>制作 .framework 静态库（闭源库）</h3><ul>
+<li><p>xcode打开，command+shift+N， 新建framework 工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-5071ba9751b9680a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>下面是framework 工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-a7924dd04e39edc9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>配置工程， 选择工程名-》General，选择支持的系统和平台</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-05a9e1ff31d2b2d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+</li>
+<li><p>非必选属性设置<br>build settings &gt; Dead Code Stripping -&gt; NO ， Link with Standard Libraries -&gt; NO<br>有的博客里说要将这两个属性设置为NO，但在xcode7以后不需要再把它们设置为NO。<br><code>Dead Code Stripping</code> ，如果开启此项，就会对代码的“dead”，“unreachable” 的代码过滤，能起到一定的优化作用，但是优化效果一般，对于比较小的项目甚至没有什么优化提现。<code>Dead Code Stripping</code> 是对程序编译出的可执行二进制文件中没有被实际使用的代码进行剥离，也就是消除无效代码。<br><code>Link with Standard Libraries</code> 如果激活此设置，那么编译器在链接过程中会自动使用通过标准库的链接器。如果使用NO，需要配置<code>Other Linker Flags</code> 来指定链接器。</p>
+</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-d378ffedf8718e73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li><code>Generate Debug Symbols 在release</code> 模式下设置为NO，debug 模式下设置为YES，是为了framework瘦身，为了进行代码调试，如果设置为NO，debug模式将不能进行断点调试，大约可以减少30%体积 （非必选）</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-0b6840ce510b1ad2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>必选配置<br><code>Build Settings &gt;&gt;Build Active Architecture Only -&gt; NO</code>，如果设置为YES，会导致编译器只生成当前CPU架构，这个适合在debug 模式下测试使用。<br>如果设置为NO，模拟器编译后生成的framework 同时包含x86_64 和 i386 架构。真机包含 armv7,arm64 架构。</li>
+<li>静态库配置<br><code>Build Settings &gt;&gt; Mach-O Type &gt;&gt; Static Library</code><br>对于Mach-O type 有两种类型 <code>Static Library</code> 是静态库，<code>Relocatable Object File</code> 是动态库。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-6d2c214708c5fb65.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>可测试后再配置<br><code>Build Settings -&gt; Excluded Architectures</code>,在模拟器 模式下选择该项，添加arm64 架构，如果不设置此项，在xcode12 生成的模拟器版本 framework 会多一个arm64架构，这和真机模式下的架构有所冲突，会导致合并不成功。 真机模式下 不要添加此项。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-ea1134fee9d99fc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>创建SDK需要的目录和文件</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-1f57320e3506b3ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>公开头文件<br>把你想要对外公开的.h 文件 放到public 中，不想公开的就放在project 中。然后不要忘记 在<code>framework名称.h</code>里面导入你公开的头文件。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-745c323acbc15843.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-4787afabd3512aaa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h5 id="创建bundle-文件"><a href="#创建bundle-文件" class="headerlink" title="创建bundle 文件"></a>创建bundle 文件</h5><ul>
+<li>第一种 直接创建文件夹，修改后缀名为.bundle<br>bundle 文件是静态的，不参与项目的编译，而xib 是文本文件，编译后要被序列化为二进制的nib 文件，使用的时候将nib 文件反序列化就可以使用了。如果你的bundle 里没有xib 文件，只需要创建文件夹，修改后缀名就可以。 如果你的bundle里打算包含xib 文件，那么就必须使用第二种方法，创建工程的形式将xib 序列化为nib 文件。</li>
+<li>创建工程的形式<br>iOS 创建bundle（xcode 13） <a href="https://www.jianshu.com/writer#/notebooks/21593564/notes/57586788">https://www.jianshu.com/writer#/notebooks/21593564/notes/57586788</a></li>
+</ul>
+<h5 id="在framework-中添加bundle-资源"><a href="#在framework-中添加bundle-资源" class="headerlink" title="在framework 中添加bundle 资源"></a>在framework 中添加bundle 资源</h5><ul>
+<li>将上文中创建的bundle 文件 拖入到framework工程，拖入后 copy bundle resources 中会自动引入。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-cf7f39cf0291439e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li><p><code>command +B</code>编译工程，在debug 和release 模式下 分别选择 真机和模拟器，在这里我用于测试，所以选的debug 模式，如果只为了测试 也可以只选择真机 或者模拟器。两个都选的话，后期要合并。<br>上文中提到，在模拟器中 要添加 arm64（上文有步骤，也可以亲自测试后再添加），防止合并中起冲突。</p>
+</li>
+<li><p>编译后 <code>command +,</code> 此图为模拟器中的framework，可以查看它支持的架构<br><code>lipo -info “绿色框地址”</code>，i386，x86_64</p>
+</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-43ce723f98aa97aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-d3865fbe2dc75f9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1148/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>同样的方式在真机下编译，查看架构</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-9ba83fabf3a9cce7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-29640b20a313b7fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1128/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>合并两个静态库，将合并后的输出路径 替换掉其中一个路径（模拟器或真机下的 framework 路径）<br>合并命令<code>lipo -create &quot;模拟器路径&quot; “真机路径” -output &quot;真机路径&quot;</code> （此处路径都是以上截图绿色框路径）</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-2debf0d8efb9c3a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1150/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>此处我替换的是模拟器路径，所以将替换后的framework拿出来就行了，也可以测试一下 合并后支持的架构</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-abfdc54e218b312c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-49d2a3e502dd6fbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1142/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<h5 id="在项目工程中导入framework"><a href="#在项目工程中导入framework" class="headerlink" title="在项目工程中导入framework"></a>在项目工程中导入framework</h5><ul>
+<li>直接拖入工程</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-acc8630a76721496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>如果framework中包含了分类，那么要在使用framework的工程里配置一下<br>build settings里为Other Linker Flags 添加 -ObjC</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-48ebc1b538f2e7d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>如果framework有bundle 资源，选择添加copy files</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-318277f812d98148.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-05eeff3a7edf462d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1126/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>项目工程中使用，在用的地方 导入 framework 的头文件，就可以使用公开的头文件 和 方法</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-95ddf9b70e805c23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1110/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<ul>
+<li>工程 和 framework 中使用bundle 资源</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *bundlePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@&quot;LHNetwork.framework/HLNetworkSource&quot;</span> ofType:<span class="string">@&quot;bundle&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;bundlePath = %@&quot;</span>,bundlePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSBundle</span> *bundle = [<span class="built_in">NSBundle</span> bundleWithPath:bundlePath];</span><br><span class="line"><span class="built_in">NSString</span> *pic1 = [bundle pathForResource:<span class="string">@&quot;bill_head_bg@2x&quot;</span> ofType:<span class="string">@&quot;png&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;pic1 = %@&quot;</span>,pic1);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithContentsOfFile:pic1];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;image = %@&quot;</span>,image);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>还有一种，framework 中不用引入bundle，直接把bundle 导入项目工程，手动拖入就行</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-3db54cf0ddd9d859.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>那么在工程和 framework中就可以用以下方式使用bundle中资源</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *bundlePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@&quot;HLNetworkSource&quot;</span> ofType:<span class="string">@&quot;bundle&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;bundlePath = %@&quot;</span>,bundlePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSBundle</span> *bundle = [<span class="built_in">NSBundle</span> bundleWithPath:bundlePath];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *imagePath = [bundle pathForResource:<span class="string">@&quot;bill_head_bg@2x&quot;</span> ofType:<span class="string">@&quot;png&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;imagePath = %@&quot;</span>,imagePath);</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithContentsOfFile:imagePath];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;image = %@&quot;</span>,image);</span><br><span class="line"></span><br><span class="line">imageView.image = image;</span><br></pre></td></tr></table></figure>
+
+<h5 id="另一种将framework-导入工程的方式"><a href="#另一种将framework-导入工程的方式" class="headerlink" title="另一种将framework 导入工程的方式"></a>另一种将framework 导入工程的方式</h5><p>直接将xxx.framework SDK拖入工程不太方便测试，在工程中看不到源代码，我们可以把framework的工程文件导入 ，就是创建的framework工程</p>
+<p><img src="//upload-images.jianshu.io/upload_images/3513176-cbc59aea58341ab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1150/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>至于导入的方式，可以参考我的另一篇文章 <a href="https://www.jianshu.com/writer#/notebooks/21593564/notes/100387726">多工程联编</a><br>这样很方便的修改和调试。</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>有的博客说，在上架App Store的时候，会有报错。可能需要把info.plist文件中的Excutable file删除，大家可以试一下，我没有实际操作。</p>
+<h5 id="补充说明，设备CPU架构"><a href="#补充说明，设备CPU架构" class="headerlink" title="补充说明，设备CPU架构"></a>补充说明，设备CPU架构</h5><p><img src="//upload-images.jianshu.io/upload_images/3513176-aabac5a0963e9364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/820/format/webp"  data-tag='post-image' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>image.png</p>
+<p>参考文章：<br><a href="https://links.jianshu.com/go?to=https://blog.csdn.net/jingcheng345413/article/details/54969324">https://blog.csdn.net/jingcheng345413/article/details/54969324</a><br><a href="https://links.jianshu.com/go?to=https://www.cnblogs.com/mtystar/p/6082363.html">https://www.cnblogs.com/mtystar/p/6082363.html</a></p>
+<p>本文转自 <a href="https://www.jianshu.com/p/437b56dd353e">https://www.jianshu.com/p/437b56dd353e</a>，如有侵权，请联系删除。</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>iOS之MD5加密、加盐</title>
+    <url>/2024/07/01/iOS/iOS%E4%B9%8BMD5%E5%8A%A0%E5%AF%86%E3%80%81%E5%8A%A0%E7%9B%90/</url>
+    <content><![CDATA[<p>MD5加密：HASH算法一种、 是生成32位的数字字母混合码。<br>特点：<br>1、任意数据得出的MD5值长度都是32<br>2、对原数据进行任何改动，所得到的MD5值都有很大区别</p>
+<p>应用：<br>主要运用在数字签名、口令加密等方面</p>
+<p>MD5改进(加盐等)：<br>现在的MD5已不再是绝对安全，对此，可以对MD5稍作改进，以增加解密的难度<br>加盐（Salt）：在明文的固定位置插入随机串，然后再进行MD5</p>
+<p>写一个NSString分类，NSString+wxMD5</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;NSString+wxMD5.h&quot;</span></span></span><br><span class="line"><span class="meta">#import <span class="string">&lt;CommonCrypto/CommonDigest.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">wxMD5</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSString</span> *)getmd5Str:(<span class="built_in">NSString</span> *)str</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//传入参数,转化成char</span></span><br><span class="line">    <span class="keyword">const</span> <span class="type">char</span> *cStr = [str UTF8String];</span><br><span class="line">    <span class="comment">//开辟一个16字节的空间</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> result[<span class="number">16</span>];</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     extern unsigned char * CC_MD5(const void *data, CC_LONG len, unsigned char *md)官方封装好的加密方法</span></span><br><span class="line"><span class="comment">     把str字符串转换成了32位的16进制数列（这个过程不可逆转） 存储到了md这个空间中</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    CC_MD5(cStr, (<span class="type">unsigned</span>)strlen(cStr), result);</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X&quot;</span>,</span><br><span class="line">             result[<span class="number">0</span>], result[<span class="number">1</span>], result[<span class="number">2</span>], result[<span class="number">3</span>],</span><br><span class="line">             result[<span class="number">4</span>], result[<span class="number">5</span>], result[<span class="number">6</span>], result[<span class="number">7</span>],</span><br><span class="line">             result[<span class="number">8</span>], result[<span class="number">9</span>], result[<span class="number">10</span>], result[<span class="number">11</span>],</span><br><span class="line">             result[<span class="number">12</span>], result[<span class="number">13</span>], result[<span class="number">14</span>], result[<span class="number">15</span>]</span><br><span class="line">             ];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<p>md5解密网站：<a href="https://links.jianshu.com/go?to=https://www.cmd5.com">https://www.cmd5.com</a><br>使用示例</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *str = <span class="string">@&quot;123Man456&quot;</span>;</span><br><span class="line"><span class="built_in">NSString</span> *md5str = [<span class="built_in">NSString</span> getmd5Str:str];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,md5str);</span><br><span class="line"><span class="comment">//加盐后</span></span><br><span class="line"><span class="built_in">NSString</span> *salt = <span class="string">@&quot;asdkqwkfqlwflqfwlMAk&quot;</span>;</span><br><span class="line"><span class="built_in">NSString</span> *newStr = [str stringByAppendingString:salt];</span><br><span class="line"><span class="built_in">NSString</span> *newMd5str = [<span class="built_in">NSString</span> getmd5Str: newStr];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,newMd5str);</span><br></pre></td></tr></table></figure>
+
+<p>本文转自 <a href="https://www.jianshu.com/p/d58188ea7abe">https://www.jianshu.com/p/d58188ea7abe</a>，如有侵权，请联系删除。</p>
 ]]></content>
       <categories>
         <category>iOS</category>
